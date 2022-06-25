@@ -23,9 +23,9 @@ const App = () => {
   const [searchField, setSearchField] = useState('');
   const [monsters, setMonsters] = useState([]);
   const [filteredMonsters, setFilteredMonsters] = useState(monsters);
-  const [title, setTitle] = useState('');
-  const [a, b] = useState('');
-  const [c, d] = useState('');
+  // const [title, setTitle] = useState('');
+  // const [a, b] = useState('');
+  // const [c, d] = useState('');
 
   // console.log('render2');
 
@@ -47,8 +47,8 @@ const App = () => {
       return (monster.name.toLocaleLowerCase().includes(searchField));
     });
     setFilteredMonsters(newFilteredMonsters);
-    b(newFilteredMonsters);
-    d(newFilteredMonsters);
+    // b(newFilteredMonsters);
+    // d(newFilteredMonsters);
   },
     [monsters, searchField])
 
@@ -58,10 +58,10 @@ const App = () => {
   // ...monsters array is not empty since 1st useEffect does get run, it just doesn't get updated fast enough (probably).
   //[value<initial value set to '' empty string>, setValue<this is a function>]
 
-  const onTitleChange = (event) => {
-    const titleFieldString = event.target.value.toLocaleLowerCase();
-    setTitle(titleFieldString);
-  };
+  // const onTitleChange = (event) => {
+  //   const titleFieldString = event.target.value.toLocaleLowerCase();
+  //   setTitle(titleFieldString);
+  // };
 
   const onSearchChange = (event) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
@@ -70,18 +70,18 @@ const App = () => {
 
   return (
     <div className='App'>
-      <h1 className='app-title'>{title}</h1>
+      <h1 className='app-title'>Monsters Rolodex</h1>
       <SearchBox
         onChangeHandler={onSearchChange}
         className='monsters-search-box'
         placeholder='search monsters'
       />
       <br />
-      <SearchBox
+      {/* <SearchBox
         onChangeHandler={onTitleChange}
         className='set-title'
         placeholder='set title'
-      />
+      /> */}
       <CardList monsters={filteredMonsters} />
     </div >
   );
